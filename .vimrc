@@ -27,7 +27,7 @@ set cpo-=<
 set wcm=<C-Z>
 map <F4> :emenu <C-Z>
 "--- End sweet menu
-"--- Use F2 to toggle paste mode that disables auto intenting 
+"--- Use F2 to toggle paste mode that disables auto indenting 
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode   

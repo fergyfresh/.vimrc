@@ -1,4 +1,3 @@
-execute pathogen#infect()
 set nocompatible "This fixes the problem where arrow keys do not function properly on some systems.
 syntax on  "Enables syntax highlighting for programming languages
 filetype plugin indent on

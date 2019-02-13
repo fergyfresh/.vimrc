@@ -1,5 +1,30 @@
+execute pathogen#infect()
+
+"--- Start Fold stuff
+set foldmethod=indent
+set foldlevel=99
+
+nnoremap <space> za
+
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
+"--- End Fold Stuff
+
+"--- Start Relative/Absolute stuff
+:set number relativenumber
+
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
+"--- End Relative/Absolute stuff
+
 set nocompatible "This fixes the problem where arrow keys do not function properly on some systems.
-filetype off
+filetype plugin indent on
 syntax enable
 
 set mouse=a  "Allows you to click around the text editor with your mouse to move the cursor
@@ -31,15 +56,16 @@ set backspace=2
 "
 autocmd FileType ruby       setlocal shiftwidth=2 tabstop=2
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
-autocmd FileType coffee     setlocal shiftwidth=2 tabstop=2
-autocmd FileType html       setlocal shiftwidth=2 tabstop=2
-autocmd FileType liquid     setlocal shiftwidth=2 tabstop=2
-autocmd FileType eruby      setlocal shiftwidth=2 tabstop=2
-autocmd FileType sls        setlocal shiftwidth=2 tabstop=2
-autocmd FileType ocaml      setlocal shiftwidth=2 tabstop=2
+autocmd FileType coffee     setlocal shiftwidth=2 tabstop=2
+autocmd FileType html       setlocal shiftwidth=2 tabstop=2
+autocmd FileType liquid     setlocal shiftwidth=2 tabstop=2
+autocmd FileType eruby      setlocal shiftwidth=2 tabstop=2
+autocmd FileType sls        setlocal shiftwidth=2 tabstop=2
+autocmd FileType ocaml      setlocal shiftwidth=2 tabstop=2
+autocmd FileType yaml       setlocal shiftwidth=2 tabstop=2
+autocmd FileType yml        setlocal shiftwidth=2 tabstop=2
 
 
-set foldmethod=manual  "Lets you hide sections of code
 "--- The following commands make the navigation keys work like standard editors
 imap <silent> <Down> <C-o>gj
 imap <silent> <Up> <C-o>gk
@@ -62,8 +88,3 @@ set visualbell
 set statusline+=%F
 set laststatus=2
 
-"--- Run JSHint by pressing F1 
-nnoremap <silent><F1> :JSHint<CR>
-inoremap <silent><F1> <C-O>:JSHint<CR>
-vnoremap <silent><F1> :JSHint<CR>
-cnoremap <F1> JSHint
